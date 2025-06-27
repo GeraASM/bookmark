@@ -1,8 +1,24 @@
 const bookmarkOptions = document.querySelectorAll('.bookmark__option');
+const showOptions = {
+    simple: ['Bookmark in one click', `Organize your bookmarks however you like. Our simple drag-and-drop interface 
+      gives you complete control over how you manage your favourite sites.`],
+    speedy: ['Intelligent search', `Our powerful search feature will help you find saved sites in no time at all. 
+  No need to trawl through all of your bookmarks.`],
+    easy: ['Share your bookmarks', `Easily share your bookmarks and collections with others. Create a shareable 
+  link that you can send at the click of a button.`]
+}
+const title = document.getElementById('title');
+const text = document.getElementById('text');
 function optionChose(e) {
     const option = e.currentTarget;
+    const idOption = option.id;
+    console.log(idOption);
+    const [titleOption, textOption] = showOptions[idOption];
+    console.log(titleOption, textOption);
     bookmarkOptions.forEach(option => option.classList.remove('bookmark__option--active'));
     option.classList.add('bookmark__option--active');
+    title.textContent = titleOption;
+    text.textContent = textOption;
 }
 bookmarkOptions.forEach(option => option.addEventListener('click', optionChose));
 

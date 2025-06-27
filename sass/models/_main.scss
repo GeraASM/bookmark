@@ -141,7 +141,7 @@
             color: variables.$clr-red-400;
         }
         &:focus {
-            outline: 1px solid variables.$clr-red-400;
+            outline: none;
         }
 
         @media screen and (min-width: 768px) {

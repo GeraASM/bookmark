@@ -253,7 +253,7 @@ img {
   color: #FA5959;
 }
 .bookmark__option:focus {
-  outline: 1px solid #FA5959;
+  outline: none;
 }
 @media screen and (min-width: 768px) {
   .bookmark__option {
