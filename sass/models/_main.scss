@@ -91,7 +91,7 @@
         font-size: 15px;
         line-height: 2;
         cursor: pointer;
-        border: 1px solid;
+        border: 2px solid;
         transition: transform 0.2s ease, color 0.2s ease;
         &:hover {
             transform: scale(1.09);
@@ -106,6 +106,7 @@
             background-color: variables.$clr-grey-50;
             color: variables.$clr-blue-950;
             opacity: 0.75;
+            border: 2px solid transparent;
             &:hover {
                 border-color: variables.$clr-grey-400;
                 color: variables.$clr-blue-950;
@@ -138,6 +139,9 @@
         transition: all 0.4s ease;
         &:hover {
             color: variables.$clr-red-400;
+        }
+        &:focus {
+            outline: 1px solid variables.$clr-red-400;
         }
 
         @media screen and (min-width: 768px) {
@@ -270,9 +274,10 @@
     }
 
     &__question {
-        height: 25px;
+        max-height: 25px;
         margin-bottom: 1rem;
         overflow: hidden;
+        transition: max-height 0.6s ease;
         @media screen and (min-width: 768px) {
             margin-bottom: 1.2rem;
         }
@@ -307,6 +312,7 @@
         &-arrow {
             color: #5267DF;
             width: 25px; height: 20px;
+            transition: transform 0.4s ease;
             & > svg {
                 width: 100%; height: 100%;    
             }
@@ -317,7 +323,7 @@
         }
 
         &--active {
-            height: auto;
+            max-height: 200px;
         }
 
     }
@@ -378,26 +384,44 @@
             }
         }
 
+        &-input {
+            background-color: variables.$clr-grey-50;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            &--error {
+               outline: 4px solid variables.$clr-red-400;
+            }
+        }
+
         &-email {
             width: 100%;
             height: 48px;
             border: none;
-            background-color: variables.$clr-grey-50;
             padding: 16px;
+            background-color: transparent;
              font-family: inherit;
                 font-weight: 400;
                 font-size: 15px;
                 line-height: 1.65;
             color: variables.$clr-blue-950;
             border-radius: 5px;
+            border: none;
             &:focus {
-                outline-color: 1px solid blue;
+                outline: none;
+                border: none;
             }
             &::placeholder {
                 font-family: inherit;
                 font-weight: 400;
                 font-size: 15px;
                 line-height: 1.65;
+            }
+            &--alert {
+                width: 30px;
+            }
+            &:invalid + &--alert::before {
+                content: '⚠️'
             }
             @media screen and (min-width: 768px) {
                 flex-grow: 1;
@@ -419,6 +443,12 @@
             border-radius: 5px;
             &:hover {
                 transform: scale(1.09);
+            }
+            &--error {
+                outline: 4px solid variables.$clr-red-400;
+                background-color: variables.$clr-grey-50;
+                color: variables.$clr-red-400;
+                font-weight: 600;
             }
 
             @media screen and (min-width: 768px) {
