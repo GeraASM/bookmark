@@ -1,0 +1,68 @@
+@use 'mix';
+@use 'variables';
+.book {
+    @include mix.flex();
+    &__logo {
+        object-fit: contain;
+
+        @media screen and (min-width: 768px) {
+            width: 150px;
+        }
+    }
+
+    &__menu {
+        cursor: pointer;
+        &:hover, &:focus {
+            transform: scale(1.2);
+            outline: 1px solid transparent;
+        }
+        @media screen and (min-width: 1024px) {
+            display: none;
+        }
+    }
+
+    &__links {
+        display: none;
+        @media screen and (min-width: 1024px) {
+            display: block;
+        }
+    }
+
+    &__links ul {
+        @include mix.flex();
+        list-style-type: none;
+        gap: 48px;
+    }
+    &__link {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 2;
+        letter-spacing: 0.25px;
+        color: variables.$clr-blue-950;
+        text-decoration: none;
+        &:hover {
+            color: variables.$clr-red-400;
+        }
+    }
+    &__login {
+        background-color: variables.$clr-red-400;
+        padding: 8px 32px;
+        font-family: inherit;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 2;
+        letter-spacing: 0.25px;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: transform 0.4s ease, color 0.3s ease;
+        &:hover {
+            transform: scale(1.1);
+            background-color: #fff;
+            color: variables.$clr-red-400;
+            border-color: variables.$clr-red-400;
+        }
+    }
+}

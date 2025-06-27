@@ -1,0 +1,60 @@
+@use 'variables';
+@use 'mix';
+.footer {
+    background-color: variables.$clr-blue-950;
+    padding: 2rem;
+    @include mix.flex();
+    flex-direction: column;
+    gap: 48px;
+    height: auto;
+    position: relative;
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+        padding: 2rem 4rem;
+    }
+    @media screen and (min-width: 1024px) {
+        padding: 32px 6rem;
+    }
+    &__links {
+        @media screen and (min-width: 1024px) {
+            position: absolute;
+            left: 28%;
+            
+        }
+
+    }
+    &__links ul {
+        @include mix.flex-layout(flex-start, center);
+        flex-direction: column;
+        gap: 24px;
+        list-style-type: none;
+        
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+    }
+    }
+
+    &__link {
+        text-decoration: none;
+        color: #fff;
+        padding-bottom: 7px;
+        &:hover {
+            border-bottom: 1px solid variables.$clr-red-400;
+            color: variables.$clr-red-400;
+        }
+    }
+
+    &__redes {
+        @include mix.flex();
+        gap: 2rem;
+        color: #fff;
+    }
+
+    &__red {
+        cursor: pointer;
+        transition: color 0.3s ease;
+        &:hover {
+            color: variables.$clr-red-400;
+        }
+    }
+}
